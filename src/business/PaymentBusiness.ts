@@ -2,6 +2,8 @@ import { PaymentDatabase } from "../database/PaymentsData";
 import { Payment } from "../models/PaymentDTO";
 import { IdGenerator } from "../services/IdGenerator";
 import { validateCreditCardNumber } from "../services/CreditCardOn";
+import { generateBoleto } from "../services/Boletos";
+import { number } from "card-validator";
 
 const idGenerator = new IdGenerator();
 export class PaymentBusiness{
@@ -23,12 +25,8 @@ if (!payment.client_id){
     throw new Error('Invalid credit card payment');
  }
 let creditCardNumber = payment.card_number as string;
-let cardData = null;
+let cardData = number;
 
-
-if (payment.type === "credit_card") {
-    cardData = validateCreditCardNumber(creditCardNumber)
-    if (!cardData.isValid) {
-      throw new Error("Credit card is invalid");
-    }
-  }
+ 
+      
+}}

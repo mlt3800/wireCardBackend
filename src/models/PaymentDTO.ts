@@ -4,7 +4,7 @@ export type Payment = {
     type: 'credit_card' | 'boleto' | "invalid"; 
     boleto_number?: string; 
       card_holder?: string;
-      card_number?: string;
+      card_number?: any;
       card_expiration_date?: string;
       card_cvv?: string;
     client_id?: string; 
